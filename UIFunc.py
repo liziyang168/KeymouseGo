@@ -25,7 +25,7 @@ from KeymouseGo import to_abs_path
 from Util.RunScriptClass import RunScriptClass
 from Util.Global import State
 from Util.ClickedLabel import Label
-
+from Util.Writer import ScriptWriter
 
 os.environ['QT_ENABLE_HIGHDPI_SCALING'] = "1"
 # if platform.system() == 'Windows':
@@ -475,8 +475,7 @@ class UIFunc(QMainWindow, Ui_UIView, QtStyleTools):
     def recordMethod(self):
         if self.state == State.RECORDING or self.state == State.PAUSE_RECORDING:
             logger.info('Record stop')
-            with open(self.new_script_path(), 'w', encoding='utf-8') as f:
-                json5.dump({"scripts": self.record}, indent=2, ensure_ascii=False, fp=f)
+            ScriptWriter.dump_to_path(self.new_script_path(), self.record)
             self.btrecord.setText(QCoreApplication.translate("UIView", 'Record', None))
             self.tnumrd.setText('finished')
             self.record = []
