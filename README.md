@@ -3,7 +3,7 @@
 # KeymouseGo
 
 <br>
-<img src="Preview.png" width="50%" height="50%" />
+<img src="assets/img/Preview.png" width="50%" height="50%" />
 
 <div>
     <img alt="platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
@@ -171,4 +171,4 @@ chmod -R 770 ~/.qt_material
 
 感谢 JetBrains 免费提供开发工具
 
-<a href="https://www.jetbrains.com/?from=KeymouseGo"><img src="https://raw.githubusercontent.com/taojy123/KeymouseGo/master/jetbrains-variant-2.png" height="80"></a>
+<a href="https://www.jetbrains.com/?from=KeymouseGo"><img src="https://raw.githubusercontent.com/taojy123/KeymouseGo/master/assets/img/jetbrains-variant-2.png" height="80"></a>

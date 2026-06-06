@@ -19,9 +19,9 @@ from loguru import logger
 
 from Event import ScriptEvent, flag_multiplemonitor
 from Plugin.Manager import PluginManager
-from UIView import Ui_UIView
+from .UIView import Ui_UIView
 
-from KeymouseGo import to_abs_path
+from Util.Path import to_abs_path
 from Util.RunScriptClass import RunScriptClass
 from Util.Global import State
 from Util.ClickedLabel import Label
@@ -457,7 +457,7 @@ class UIFunc(QMainWindow, Ui_UIView, QtStyleTools):
     def OnBtOpenScriptFilesButton(self):
         global scripts_map
 
-        import UIFileDialogFunc
+        from . import UIFileDialogFunc
 
         scripts_map['current_index'] = self.choice_script.currentIndex()
         file_dialog = UIFileDialogFunc.FileDialog()

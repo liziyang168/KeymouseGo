@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
     QLayout, QMainWindow, QMenuBar, QPushButton,
     QSizePolicy, QSlider, QSpinBox, QStatusBar,
     QTextEdit, QVBoxLayout, QWidget)
-import assets_rc
+from . import assets_rc
 
 class Ui_UIView(object):
     def setupUi(self, UIView):

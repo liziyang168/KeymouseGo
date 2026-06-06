@@ -3,7 +3,7 @@
 # KeymouseGo
 
 <br>
-<img src="Preview.png" width="50%" height="50%" />
+<img src="assets/img/Preview.png" width="50%" height="50%" />
 <div>
     <img alt="platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
 </div>
@@ -182,7 +182,7 @@ Note: If you want to modify the application UI, please modify `UIView.ui` and ge
 
 Thanks to free develop tool provided by JetBrains
 
-<a href="https://www.jetbrains.com/?from=KeymouseGo"><img src="https://raw.githubusercontent.com/taojy123/KeymouseGo/master/jetbrains-variant-2.png" height="80"></a>
+<a href="https://www.jetbrains.com/?from=KeymouseGo"><img src="https://raw.githubusercontent.com/taojy123/KeymouseGo/master/assets/img/jetbrains-variant-2.png" height="80"></a>
 
 ----------------------
 
