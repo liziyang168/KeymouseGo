@@ -100,6 +100,13 @@ class UIFunc(QMainWindow, Ui_UIView, QtStyleTools):
         self.choice_language.setCurrentText(language)
         self.onchangelang()
 
+        for hour in range(24):
+            self.combo_start_hour.addItem(f"{hour:02d}")
+            self.combo_stop_hour.addItem(f"{hour:02d}")
+        for minute in range(0, 60, 1):
+            self.combo_start_min.addItem(f"{minute:02d}")
+            self.combo_stop_min.addItem(f"{minute:02d}")
+
         get_script_list_from_dir()
         update_script_map()
         self.scripts = scripts

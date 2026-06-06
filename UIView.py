@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'UIView.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.5.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QGridLayout,
-    QGroupBox, QHBoxLayout, QLabel, QLayout,
-    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QSlider, QSpinBox, QStatusBar, QTextEdit,
-    QVBoxLayout, QWidget, QCheckBox)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
+    QGridLayout, QGroupBox, QHBoxLayout, QLabel,
+    QLayout, QMainWindow, QMenuBar, QPushButton,
+    QSizePolicy, QSlider, QSpinBox, QStatusBar,
+    QTextEdit, QVBoxLayout, QWidget)
 import assets_rc
 
 class Ui_UIView(object):
@@ -28,7 +28,7 @@ class Ui_UIView(object):
             UIView.setObjectName(u"UIView")
         UIView.resize(651, 477)
         icon = QIcon()
-        icon.addFile(u":/pic/Mondrian.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u":/pic/Mondrian.png", QSize(), QIcon.Normal, QIcon.Off)
         UIView.setWindowIcon(icon)
         self.centralwidget = QWidget(UIView)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -50,7 +50,7 @@ class Ui_UIView(object):
 
         self.choice_language = QComboBox(self.groupBox)
         self.choice_language.setObjectName(u"choice_language")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.choice_language.sizePolicy().hasHeightForWidth())
@@ -82,6 +82,66 @@ class Ui_UIView(object):
         self.hotkey_stop.setObjectName(u"hotkey_stop")
 
         self.gridLayout_3.addWidget(self.hotkey_stop, 2, 1, 1, 1)
+
+        self.label_start_time = QLabel(self.groupBox)
+        self.label_start_time.setObjectName(u"label_start_time")
+
+        self.gridLayout_3.addWidget(self.label_start_time, 4, 0, 1, 1)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.combo_start_hour = QComboBox(self.groupBox)
+        self.combo_start_hour.setObjectName(u"combo_start_hour")
+
+        self.horizontalLayout_3.addWidget(self.combo_start_hour)
+
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+
+        self.horizontalLayout_3.addWidget(self.label)
+
+        self.combo_start_min = QComboBox(self.groupBox)
+        self.combo_start_min.setObjectName(u"combo_start_min")
+
+        self.horizontalLayout_3.addWidget(self.combo_start_min)
+
+        self.checkbox_no_timing_start = QCheckBox(self.groupBox)
+        self.checkbox_no_timing_start.setObjectName(u"checkbox_no_timing_start")
+
+        self.horizontalLayout_3.addWidget(self.checkbox_no_timing_start)
+
+
+        self.gridLayout_3.addLayout(self.horizontalLayout_3, 4, 1, 1, 1)
+
+        self.label_stop_time = QLabel(self.groupBox)
+        self.label_stop_time.setObjectName(u"label_stop_time")
+
+        self.gridLayout_3.addWidget(self.label_stop_time, 5, 0, 1, 1)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.combo_stop_hour = QComboBox(self.groupBox)
+        self.combo_stop_hour.setObjectName(u"combo_stop_hour")
+
+        self.horizontalLayout_4.addWidget(self.combo_stop_hour)
+
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+
+        self.horizontalLayout_4.addWidget(self.label_2)
+
+        self.combo_stop_min = QComboBox(self.groupBox)
+        self.combo_stop_min.setObjectName(u"combo_stop_min")
+
+        self.horizontalLayout_4.addWidget(self.combo_stop_min)
+
+        self.checkbox_no_timing_stop = QCheckBox(self.groupBox)
+        self.checkbox_no_timing_stop.setObjectName(u"checkbox_no_timing_stop")
+
+        self.horizontalLayout_4.addWidget(self.checkbox_no_timing_stop)
+
+
+        self.gridLayout_3.addLayout(self.horizontalLayout_4, 5, 1, 1, 1)
 
         self.horizontalLayoutWidget = QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
@@ -257,53 +317,6 @@ class Ui_UIView(object):
         self.statusbar.setObjectName(u"statusbar")
         UIView.setStatusBar(self.statusbar)
 
-        # 定时开始时间的小时和分钟选择
-        self.label_start_time = QLabel(self.groupBox)
-        self.label_start_time.setText("定时开始时间:")
-        self.combo_start_hour = QComboBox(self.groupBox)
-        self.combo_start_min = QComboBox(self.groupBox)
-        for hour in range(24):
-            self.combo_start_hour.addItem(f"{hour:02d}")
-        for minute in range(0, 60, 1):
-            self.combo_start_min.addItem(f"{minute:02d}")
-        self.combo_start_hour.setCurrentText("00")
-        self.combo_start_min.setCurrentText("00")
-
-        # 定时停止时间的小时和分钟选择
-        self.label_stop_time = QLabel(self.groupBox)
-        self.label_stop_time.setText("定时停止时间:")
-        self.combo_stop_hour = QComboBox(self.groupBox)
-        self.combo_stop_min = QComboBox(self.groupBox)
-        for hour in range(24):
-            self.combo_stop_hour.addItem(f"{hour:02d}")
-        for minute in range(0, 60, 1):
-            self.combo_stop_min.addItem(f"{minute:02d}")
-        self.combo_stop_hour.setCurrentText("00")
-        self.combo_stop_min.setCurrentText("00")
-
-        # 添加“不定时”复选框
-        self.checkbox_no_timing_start = QCheckBox("不定时", self.groupBox)
-        self.checkbox_no_timing_stop = QCheckBox("不定时", self.groupBox)
-
-        # 开始时间布局
-        hbox_start = QHBoxLayout()
-        hbox_start.addWidget(self.combo_start_hour)
-        hbox_start.addWidget(QLabel(":"))
-        hbox_start.addWidget(self.combo_start_min)
-        hbox_start.addWidget(self.checkbox_no_timing_start)
-
-        # 停止时间布局
-        hbox_stop = QHBoxLayout()
-        hbox_stop.addWidget(self.combo_stop_hour)
-        hbox_stop.addWidget(QLabel(":"))
-        hbox_stop.addWidget(self.combo_stop_min)
-        hbox_stop.addWidget(self.checkbox_no_timing_stop)
-
-        self.gridLayout_3.addWidget(self.label_start_time, 4, 0)
-        self.gridLayout_3.addLayout(hbox_start, 4, 1)
-        self.gridLayout_3.addWidget(self.label_stop_time, 5, 0)
-        self.gridLayout_3.addLayout(hbox_stop, 5, 1)
-
         self.retranslateUi(UIView)
 
         QMetaObject.connectSlotsByName(UIView)
@@ -319,6 +332,12 @@ class Ui_UIView(object):
         self.hotkey_start.setText("")
         self.hotkey_record.setText("")
         self.hotkey_stop.setText("")
+        self.label_start_time.setText(QCoreApplication.translate("UIView", u"\u5b9a\u65f6\u5f00\u59cb\u65f6\u95f4:", None))
+        self.label.setText(QCoreApplication.translate("UIView", u":", None))
+        self.checkbox_no_timing_start.setText(QCoreApplication.translate("UIView", u"\u4e0d\u5b9a\u65f6", None))
+        self.label_stop_time.setText(QCoreApplication.translate("UIView", u"\u5b9a\u65f6\u505c\u6b62\u65f6\u95f4:", None))
+        self.label_2.setText(QCoreApplication.translate("UIView", u":", None))
+        self.checkbox_no_timing_stop.setText(QCoreApplication.translate("UIView", u"\u4e0d\u5b9a\u65f6", None))
         self.btrecord.setText(QCoreApplication.translate("UIView", u"Record", None))
         self.btrun.setText(QCoreApplication.translate("UIView", u"Launch", None))
         self.btpauserecord.setText(QCoreApplication.translate("UIView", u"Pause Record", None))
