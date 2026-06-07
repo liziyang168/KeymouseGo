@@ -10,11 +10,10 @@ import platform
 import locale
 import Recorder
 
-from PySide6.QtGui import QTextCursor
+from PySide6.QtGui import QTextCursor, QIcon
 from qt_material import list_themes, QtStyleTools
 from PySide6.QtCore import *
-from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox
-from PySide6.QtMultimedia import QSoundEffect
+from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox, QSystemTrayIcon
 from loguru import logger
 
 from Event import ScriptEvent, flag_multiplemonitor
@@ -190,12 +189,12 @@ class UIFunc(QMainWindow, Ui_UIView, QtStyleTools):
 
         self.textlog.textChanged.connect(lambda: self.textlog.moveCursor(QTextCursor.End))
 
-        # For tune playing
-        self.player = QSoundEffect()
+        # For system notifications
+        self.tray_icon = QSystemTrayIcon(QIcon(get_assets_path('img', 'Mondrian.png')), self)
+        self.tray_icon.show()
         self.volumeSlider.setValue(50)
         self.volumeSlider.valueChanged.connect(
-            lambda: self.player.setVolume(
-                self.volumeSlider.value()/100.0))
+            lambda: None)
 
         self.record = []
 
@@ -391,8 +390,8 @@ class UIFunc(QMainWindow, Ui_UIView, QtStyleTools):
 
     @Slot(str)
     def playtune(self, filename: str):
-        self.player.setSource(QUrl.fromLocalFile(get_assets_path('sounds', filename)))
-        self.player.play()
+        msg = "录制开始 / 脚本运行" if "start" in filename else "录制结束 / 运行完成"
+        self.tray_icon.showMessage("KeymouseGo", msg, QSystemTrayIcon.Information, 2000)
 
     def closeEvent(self, event):
         self.config.sync()
